@@ -4,17 +4,14 @@ namespace FindMaximum
 {
     class findMax
     {
-        public static void printMax(){
-            System.Console.WriteLine("Enter the First Number");
-            int num1 = Convert.ToInt32(Console.ReadLine());
-             System.Console.WriteLine("Enter the Second Number");
-            int num2 = Convert.ToInt32(Console.ReadLine());
-             System.Console.WriteLine("Enter the Third Number");
-            int num3 = Convert.ToInt32(Console.ReadLine());
+        public static void printMax()
+        {
+            int maxInt = findMaximum(1, 2, 3);
+            float maxFloat = findMaximum(1.1f, 9.4f, 5.7f);
 
-            int max = findMaximum(num1,num2,num3);
+            Console.WriteLine(maxInt);
+            Console.WriteLine(maxFloat);
 
-            System.Console.WriteLine($"The maximum element is : {max}");
 
         }
         public static int findMaximum(int num1, int num2, int num3)
@@ -26,6 +23,14 @@ namespace FindMaximum
             else if (num2.CompareTo(num1) > 0 && num2.CompareTo(num3) > 0)
             { return num2; }
             else return num3;
+        }
+
+        static float findMaximum(float num1, float num2, float num3)
+        {
+            if (num1.CompareTo(num2) > 0 && num1.CompareTo(num3) > 0) return num1;
+            else if (num2.CompareTo(num1) > 0 && num2.CompareTo(num3) > 0) return num2;
+            else if (num3.CompareTo(num1) > 0 && num3.CompareTo(num2) > 0) return num3;
+            else throw new Exception("Values are same");
         }
     }
 }
